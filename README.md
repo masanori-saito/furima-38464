@@ -1,16 +1,16 @@
 # README
 ## users table
 
-| Column          | Type   | Options                   |
-| --------------- | ------ | ------------------------- |
-| nick_name       | string | null: false               |
-| email           | string | null: false, unique: true |
-| password        | string | null: false               |
-| last_name       | string | null: false               |
-| first_name      | string | null: false               |
-| last_name_kana  | string | null: false               |
-| first_name_kana | string | null: false               |
-| birth           | date   | null: false               |
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| nick_name          | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+| last_name          | string | null: false               |
+| first_name         | string | null: false               |
+| last_name_kana     | string | null: false               |
+| first_name_kana    | string | null: false               |
+| birth              | date   | null: false               |
 
 ### Association
 ・has_many: purchase_records
@@ -25,6 +25,7 @@
 | item_category_id           | integer    | null: false                    |
 | item_status_id             | integer    | null: false                    |
 | shipping_status_id         | integer    | null: false                    |
+| item_prefecture_id         | integer    | null: false                    |
 | item_scheduled_delivery_id | integer    | null: false                    |
 | price                      | integer    | null: false                    |
 | user                       | references | null: false, foreign_key: true |
