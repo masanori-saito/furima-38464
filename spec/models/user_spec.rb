@@ -54,7 +54,7 @@ RSpec.describe User, type: :model do
       it'メールアドレスに＠が含まれていないと登録できないこと' do
         @user.email = 'aaa.aa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email can't be blank")
+        expect(@user.errors.full_messages).to include("Email is invalid")
       end
       it 'パスワードが空欄だと保存できない' do
         @user.password = ''
@@ -124,12 +124,12 @@ RSpec.describe User, type: :model do
       it '名前のフリガナが空では登録できない' do
         @user.first_name_kana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include('First name is invalid')
+        expect(@user.errors.full_messages).to include("First name kana can't be blank")
       end
       it '名字のフリガナが空では登録できない' do
         @user.last_name_kana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include('Last name is invalid')
+        expect(@user.errors.full_messages).to include("Last name kana can't be blank")
       end
       it '生年月日が空欄だと保存できない' do
         @user.birthday = ''
