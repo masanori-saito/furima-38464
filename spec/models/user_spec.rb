@@ -85,7 +85,7 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('Password Include both letters and numbers')
       end
-      it'パスワード（確認含む）が全角だと登録できないこと' do
+      it'パスワード（確認含む）が数字のみでは登録できないこと' do
         @user.password = '１２３４５６'
         @user.password_confirmation = '１２３４５６'
         @user.valid?
@@ -114,7 +114,7 @@ RSpec.describe User, type: :model do
       it '名前が空では登録できないこと' do
         @user.first_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include('First name is invalid')
+        expect(@user.errors.full_messages).to include("First name can't be blank")
       end
       it '名字が空では登録できないこと' do
         @user.last_name = ''
