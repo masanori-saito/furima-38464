@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
-  #has_many :orders
+  # has_many :orders
   # has_many :comments
 
   with_options presence: true do
@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
     validates :nickname
     # @含むこと・存在することはdeviseのデフォルト実装のため省略
-  
+
     # 全角ひらがな、全角カタカナ、漢字
     validates :last_name, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
     validates :first_name, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
