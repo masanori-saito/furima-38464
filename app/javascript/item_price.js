@@ -1,7 +1,4 @@
-
-const price = () => {
-
-
+window.addEventListener('load', () => {
   const priceInput = document.getElementById("item-price");
   priceInput.addEventListener("input", () => {
   const inputValue = priceInput.value;
@@ -12,10 +9,5 @@ const price = () => {
   // 出品価格から販売手数料を引く処理
   ProfitDom.innerHTML = inputValue - addTaxDom.innerHTML;
   })
-  
-  
-  };
-  
-  
-  window.addEventListener("load", price);
+});
  
