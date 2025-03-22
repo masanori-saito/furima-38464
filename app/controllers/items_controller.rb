@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
   end
 
   def index
-    render 'items/index'
+ 
   end
 
   def item_params
