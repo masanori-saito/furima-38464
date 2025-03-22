@@ -31,7 +31,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'capistrano'
@@ -39,6 +38,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails', '~> 4.0.0'
 end
 
 group :development do
@@ -65,3 +65,12 @@ group :production do
   gem 'pg'
 end
 gem 'devise'
+
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
+
+gem 'active_hash'
+
+group :development do
+  gem 'rubocop', require: false
+end

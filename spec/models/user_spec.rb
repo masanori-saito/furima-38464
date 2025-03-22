@@ -51,15 +51,16 @@ RSpec.describe User, type: :model do
         # binding.pry
         expect(another_user.errors.full_messages).to include('Email has already been taken')
       end
-      it'メールアドレスに＠が含まれていないと登録できないこと' do
+      it 'メールアドレスに＠が含まれていないと登録できないこと' do
         @user.email = 'aaa.aa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email is invalid")
+        expect(@user.errors.full_messages).to include('Email is invalid')
       end
       it 'パスワードが空欄だと保存できない' do
         @user.password = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password can't be blank", 'Password Include both letters and numbers', "Password confirmation doesn't match Password")
+        expect(@user.errors.full_messages).to include("Password can't be blank", 'Password Include both letters and numbers',
+                                                      "Password confirmation doesn't match Password")
       end
       it 'パスワード（確認含む）が5文字以下だと保存できない' do
         @user.password = 'ab123'
@@ -85,7 +86,7 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('Password Include both letters and numbers')
       end
-      it'パスワード（確認含む）が全角だと登録できないこと' do
+      it 'パスワード（確認含む）が全角だと登録できないこと' do
         @user.password = '１２３４５６'
         @user.password_confirmation = '１２３４５６'
         @user.valid?
