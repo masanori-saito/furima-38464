@@ -30,6 +30,9 @@ class ItemsController < ApplicationController
 
     # ログインしているユーザーと同一であればeditファイルが読み込まれる
     if @item.user_id == current_user.id
+      if @item.order.present?
+        redirect_to root_path
+      end
     else
       redirect_to root_path
     end
