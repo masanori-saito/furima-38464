@@ -15,19 +15,19 @@ RSpec.describe User, type: :model do
         expect(@user).to be_valid
       end
       it '名字が全角（漢字・ひらがな・カタカナ）であれば登録できる' do
-        @user.last_name = '斉藤'
+        @user.last_name = '山田'
         expect(@user).to be_valid
       end
       it '名前が全角（漢字・ひらがな・カタカナ）であれば登録できる' do
-        @user.first_name = '正憲'
+        @user.first_name = '陸太郎'
         expect(@user).to be_valid
       end
       it '名字のフリガナが全角（カタカナ）であれば登録できる' do
-        @user.last_name_kana = 'サイトウ'
+        @user.last_name_kana = 'ヤマダ'
         expect(@user).to be_valid
       end
       it '名前のフリガナが全角（カタカナ）であれば登録できる' do
-        @user.first_name_kana = 'マサノリ'
+        @user.first_name_kana = 'リクタロウ'
         expect(@user).to be_valid
       end
     end
